@@ -9,23 +9,28 @@ export const useGetCurrentWeather = (latitude: number, longitude: number) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const getCurrentWeather = async () => {
-            try {
-                const API = process.env.API as string;
-                const API_KEY = process.env.API_KEY as string;
-                const res = await axios.get(
-                    `http://api.weatherapi.com/v1/current.json?key=5dc9cd221ea142a6ba064753230210&q=${latitude},${longitude}`
-                );
-                const response = await res.data;
-                setWeather(response);
-            } catch (error: any) {
-                return setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+        if (latitude && longitude) {
+            const getCurrentWeather = async () => {
+                try {
+                    const API = process.env.NEXT_PUBLIC_WEATHER_API as string;
+                    const API_KEY = process.env
+                        .NEXT_PUBLIC_WEATHER_API_KEY as string;
+                    const res = await axios.get(
+                        `${API}/current.json?key=${API_KEY}&q=${latitude},${longitude}`
+                    );
+                    const response = await res.data;
+                    console.log(API, API_KEY);
+                    setWeather(response);
+                } catch (error: any) {
+                    toast.error(error.message);
+                    return setError(error.message);
+                } finally {
+                    setLoading(false);
+                }
+            };
 
-        getCurrentWeather();
+            getCurrentWeather();
+        }
     }, [latitude, longitude]);
 
     return { weather, loading, error };
