@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#top {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 20px;
+}
+
+#bottom {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+}
