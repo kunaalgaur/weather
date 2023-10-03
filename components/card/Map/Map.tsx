@@ -23,7 +23,7 @@ const Map = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: 'YOUR_GOOGLE_MAPS_API_KEY',
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
     });
 
     const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -47,7 +47,7 @@ const Map = () => {
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
-                zoom={10}
+                zoom={8}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
             />
