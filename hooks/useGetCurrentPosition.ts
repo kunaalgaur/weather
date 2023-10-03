@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 
 export const useGetCurrentPosition = () => {
-    const [latitude, setLatitude] = useState<number>();
-    const [longitude, setLongitude] = useState<number>();
+    const [latitude, setLatitude] = useState<number | undefined>();
+    const [longitude, setLongitude] = useState<number | undefined>();
 
     useEffect(() => {
-        const successFunction = (position: any) => {
+        const successFunction: PositionCallback = (
+            position: GeolocationPosition
+        ) => {
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
         };
 
-        const errorFunction = (error: any) => {
-            throw new Error(error.messsage);
+        const errorFunction = (error: GeolocationPositionError) => {
+            throw new Error(error.message);
         };
 
         navigator.geolocation.getCurrentPosition(
@@ -20,5 +22,5 @@ export const useGetCurrentPosition = () => {
         );
     }, []);
 
-    return [latitude, longitude];
+    return { latitude, longitude };
 };
