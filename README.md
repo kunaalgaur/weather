@@ -53,8 +53,8 @@ Before you begin, make sure you have the following software installed:
 To configure the Weather App, you'll need to set up environment variables for the Weather API. Create a `.env.local` file in the project root and define the following variables:
 
 ```dotenv
-NEXT_API=https://api.weatherapi.com/v1
-NEXT_API_KEY=your_weather_api_key_here
+NEXT_PUBLIC_WEATHER_API=https://api.weatherapi.com/v1
+NEXT_PUBLIC_WEATHER_API_KEY=your_weather_api_key_here
 ```
 
 Replace `your_weather_api_key_here` with your actual Weather API key.
