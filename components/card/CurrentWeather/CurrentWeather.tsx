@@ -8,12 +8,16 @@ import Image from 'next/image';
 const CurrentWeather = () => {
     const [latitude, longitude] = useGetCurrentPosition();
     const time = useGetCurrentTime();
-    const weather = useGetCurrentWeather(
+    const { weather, loading } = useGetCurrentWeather(
         latitude as number,
         longitude as number
     );
 
     console.log(latitude, longitude);
+
+    if (loading) {
+        return <span>Loading</span>;
+    }
 
     return (
         <div>
@@ -24,7 +28,10 @@ const CurrentWeather = () => {
             <div>
                 <div>
                     <Image
-                        src=""
+                        src={
+                            ('https:' +
+                                weather?.current.condition.icon) as string
+                        }
                         alt=""
                         height={0}
                         width={0}
@@ -32,7 +39,7 @@ const CurrentWeather = () => {
                     />
                 </div>
                 <div>
-                    <span></span>
+                    <span>{weather?.current.temp_c}</span>
                     <span></span>
                 </div>
             </div>
