@@ -19,7 +19,6 @@ export const useGetCurrentWeather = (latitude: number, longitude: number) => {
                         `${API}/current.json?key=${API_KEY}&q=${latitude},${longitude}`
                     );
                     const response = await res.data;
-                    console.log(API, API_KEY);
                     setWeather(response);
                 } catch (error: any) {
                     toast.error(error.message);
