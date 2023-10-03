@@ -1,12 +1,13 @@
 import CurrentWeather from '@/components/card/CurrentWeather/CurrentWeather';
 import styles from './page.module.css';
+import Map from '@/components/card/Map/Map';
 
 const page = () => {
     return (
         <div id={styles.container}>
             <div id={styles.top}>
                 <CurrentWeather />
-                <div></div>
+                <Map />
                 <div></div>
             </div>
             <div id={styles.bottom}>
