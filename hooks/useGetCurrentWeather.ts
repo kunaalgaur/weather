@@ -1,10 +1,7 @@
+import { WeatherData } from '@/constants/types';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-
-interface WeatherData {
-    // Define the structure of the weather data here
-}
 
 export const useGetCurrentWeather = (latitude: number, longitude: number) => {
     const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -14,10 +11,11 @@ export const useGetCurrentWeather = (latitude: number, longitude: number) => {
     useEffect(() => {
         const getCurrentWeather = async () => {
             try {
-                const API = `${process.env.API as string}?key=${
-                    process.env.API_KEY as string
-                }&q=${latitude},${longitude}`;
-                const res = await axios.get(API);
+                const API = process.env.API as string;
+                const API_KEY = process.env.API_KEY as string;
+                const res = await axios.get(
+                    `http://api.weatherapi.com/v1/current.json?key=5dc9cd221ea142a6ba064753230210&q=${latitude},${longitude}`
+                );
                 const response = await res.data;
                 setWeather(response);
             } catch (error: any) {
