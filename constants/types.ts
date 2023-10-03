@@ -1,4 +1,4 @@
-export type WeatherData = {
+export interface WeatherData {
     location: {
         name: string;
         region: string;
@@ -38,4 +38,5 @@ export type WeatherData = {
         gust_mph: number;
         gust_kph: number;
     };
-};
+}
+
