@@ -19,7 +19,8 @@ export const useForecast = (latitude: number, longitude: number) => {
                         `${API}/forecast.json?key=${API_KEY}&q=${latitude},${longitude}`
                     );
                     const response = await res.data;
-                    setWeather(response.forecast.forecastday.hour);
+                    console.log(response);
+                    setWeather(response.forecast.forecastday[0].hour);
                 } catch (error: any) {
                     toast.error(error.message);
                     return setError(error.message);
