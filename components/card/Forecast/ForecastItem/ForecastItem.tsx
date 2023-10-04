@@ -1,7 +1,8 @@
+import { ForecastData } from '@/constants/types';
 import Image from 'next/image';
 import React from 'react';
 
-const ForecastItem = () => {
+const ForecastItem = ({ weather }: { weather: ForecastData }) => {
     return (
         <div>
             <Image
