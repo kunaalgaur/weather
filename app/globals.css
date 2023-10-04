@@ -8,6 +8,10 @@
 body {
     display: flex;
     gap: 20px;
+    background: url(http://localhost:3000/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #container {
