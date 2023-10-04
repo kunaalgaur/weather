@@ -4,7 +4,7 @@ import styles from './PopularCities.module.css';
 import PopularCity from './PopularCity/PopularCity';
 
 const PopularCitites = () => {
-    const cities = ['Delhi', 'Mumbai', 'Banglore', 'Hyderabad', 'Kolkata'];
+    const cities = ['Delhi', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Kolkata'];
     return (
         <div id={styles.container}>
             <span id={styles.heading}>Popular Cities</span>
