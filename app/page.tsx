@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import Map from '@/components/card/Map/Map';
 import PopularCitites from '@/components/card/PopularCities/PopularCitites';
 import Forecast from '@/components/card/Forecast/Forecast';
-import Summary from '@/components/card/Summary/Summary';
+// import Summary from '@/components/card/Summary/Summary';
 
 const page = () => {
     return (
@@ -15,7 +15,7 @@ const page = () => {
             </div>
             <div id={styles.bottom}>
                 <Forecast />
-                <Summary />
+                {/* <Summary /> */}
             </div>
         </div>
     );
